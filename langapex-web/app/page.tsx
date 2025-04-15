@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CompanyCarousel } from "./components/CompanyCarousel";
+import { UniversityCarousel } from "./components/UniversityCarousel";
 
 export default function Home() {
   return (
@@ -60,23 +61,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Stats Section */}
-      <div className="bg-white/50 backdrop-blur-sm rounded-lg shadow-sm p-8 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <div className="text-4xl font-bold mb-2">5000+</div>
-            <div className="text-gray-600">Alumni Network</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold mb-2">17</div>
-            <div className="text-gray-600">Years of Excellence</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold mb-2">100+</div>
-            <div className="text-gray-600">Annual Events</div>
-          </div>
-        </div>
-      </div>
+
+      {/* University Carousel */}
+      <UniversityCarousel />
 
       {/* Company Carousel */}
       <CompanyCarousel />
