@@ -81,7 +81,7 @@ export function CompanyCarousel() {
       await controls.start({
         x: [-scrollWidth / 2, 0],
         transition: {
-          duration: 40,
+          duration: 70,
           ease: "linear",
           repeat: Infinity,
         },
