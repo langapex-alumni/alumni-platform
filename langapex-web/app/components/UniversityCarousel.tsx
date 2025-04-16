@@ -65,7 +65,7 @@ export function UniversityCarousel() {
       await controls.start({
         x: [0, -scrollWidth / 2],
         transition: {
-          duration: 40,
+          duration: 70,
           ease: "linear",
           repeat: Infinity,
         },
