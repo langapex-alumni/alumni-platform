@@ -13,7 +13,7 @@ export default function Home() {
           <span className="whitespace-nowrap bg-gradient-to-l from-[#ffe17f] to-[#fce390] bg-clip-text text-transparent">
             Lang Apex
           </span>{" "}
-          Alumni Network
+          Alumni Network{" "}
         </h1>
         <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
           Connecting generations of Lang Apex graduates, fostering lifelong

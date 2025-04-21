@@ -8,12 +8,39 @@
   --text-color: #333333;
   --background-start: #87CEEB;
   --background-end: #FFE5B4;
+
+  /* Fonts */
+  --font-family-body: 'Inter', sans-serif; /* Body font */
+  --font-family-heading: 'Roboto', serif; /* Heading font */
+  
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Font Sizes */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px; /* Default font size */
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 30px;
+  --font-size-3xl: 36px;
+
+  /* Spacing (for margins, paddings, etc.) */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 40px;
 }
 
 body {
   color: var(--text-color);
   background: linear-gradient(135deg, var(--background-start), var(--background-end));
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .logo-gradient {
