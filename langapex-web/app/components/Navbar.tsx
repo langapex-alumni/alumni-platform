@@ -1,8 +1,25 @@
 'use client';
+
 import { useState } from 'react';
-import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+
+// Custom NavLink component
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isActive = pathname === href || pathname.startsWith(href + '/');
+
+  return (
+    <Link
+      href={href}
+      className={`nav-link ${isActive ? 'text-blue-600 font-bold' : 'text-gray-800'}`}
+    >
+      {children}
+    </Link>
+  );
+}
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,12 +40,15 @@ export function Navbar() {
               <span className="text-xl font-semibold">Lang Apex</span>
             </Link>
 
+            {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6">
-              <Link href="/alumni" className="nav-link">Alumni</Link>
-              <Link href="/events" className="nav-link">Events</Link>
-              <Link href="/workshop" className="nav-link">Workshop</Link>
+              <NavLink href="/alumni">Alumni</NavLink>
+              <NavLink href="/events">Events</NavLink>
+              <NavLink href="/gallery">Gallery</NavLink>
+              <NavLink href="/workshop">Workshop</NavLink>
             </div>
 
+            {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(true)}
@@ -51,7 +71,7 @@ export function Navbar() {
 
       {/* Sidebar */}
       <div
-         className={`fixed top-0 right-0 h-full w-64 bg-white z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-64 bg-white z-40 transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -62,9 +82,10 @@ export function Navbar() {
           </button>
         </div>
         <nav className="flex flex-col p-4 space-y-4">
-          <Link href="/alumni" className="nav-link" onClick={() => setIsOpen(false)}>Alumni</Link>
-          <Link href="/events" className="nav-link" onClick={() => setIsOpen(false)}>Events</Link>
-          <Link href="/workshop" className="nav-link" onClick={() => setIsOpen(false)}>Workshop</Link>
+          <NavLink href="/alumni" >Alumni</NavLink>
+          <NavLink href="/events" >Events</NavLink>
+          <NavLink href="/gallery" >Gallery</NavLink>
+          <NavLink href="/workshop" >Workshop</NavLink>
         </nav>
       </div>
     </>
