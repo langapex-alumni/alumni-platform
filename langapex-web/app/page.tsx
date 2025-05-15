@@ -10,7 +10,7 @@ export default function Home() {
       <div className="text-center mb-16 px-4">
         <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-4 leading-tight">
           Welcome to{" "}
-          <span className="whitespace-nowrap bg-gradient-to-l from-[#ffe17f] to-[#fce390] bg-clip-text text-transparent">
+          <span className="whitespace-nowrap bg-gradient-to-r from-[#FF8C00] via-[#FFA500] to-[#FFB700] bg-clip-text text-transparent font-bold">
             Lang Apex
           </span>{" "}
           Alumni Network{" "}
