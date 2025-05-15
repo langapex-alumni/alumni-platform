@@ -30,14 +30,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center">
-              <Image
-                src="/logo.svg"
-                alt="Lang Apex Logo"
-                width={40}
-                height={40}
-                className="mr-2"
-              />
-              <span className="text-xl font-semibold">Lang Apex</span>
+              <span className="text-xl font-semibold">LangApex</span>
             </Link>
 
             {/* Desktop Menu */}
