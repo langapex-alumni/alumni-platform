@@ -1,30 +1,39 @@
-const workshops = [
+  const resources = [
   {
-    title: 'IELTS Preparation',
-    schedule: 'Monday - Friday',
-    time: '9:00 AM - 11:00 AM',
-    instructor: 'Sarah Wilson',
-    level: 'Intermediate to Advanced',
-    description: 'Comprehensive IELTS preparation course covering all four sections: Reading, Writing, Listening, and Speaking.',
-    duration: '3 months'
+    title: 'IELTS Resources',
+    items: [
+      'Official Cambridge IELTS Practice Materials',
+      'IELTS Writing Task Templates',
+      'Speaking Practice Guides',
+      'Listening Practice Tests',
+      'Reading Strategies Guide'
+    ],
+    description: 'Comprehensive resources to help you prepare for all sections of the IELTS exam.',
+    icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'
   },
   {
-    title: 'Business English',
-    schedule: 'Tuesday & Thursday',
-    time: '2:00 PM - 4:00 PM',
-    instructor: 'David Miller',
-    level: 'Upper Intermediate',
-    description: 'Learn essential business communication skills, including email writing, presentations, and negotiation.',
-    duration: '2 months'
+    title: 'SAT Resources',
+    items: [
+      'Official College Board SAT Practice Tests',
+      'Math Formula Sheet and Practice',
+      'Evidence-Based Reading Guides',
+      'Writing and Language Tips',
+      'Essay Writing Templates'
+    ],
+    description: 'Essential materials and practice tests to help you achieve your target SAT score.',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2'
   },
   {
-    title: 'Conversational English',
-    schedule: 'Monday, Wednesday, Friday',
-    time: '5:00 PM - 6:30 PM',
-    instructor: 'Emma Thompson',
-    level: 'Beginner to Intermediate',
-    description: 'Practice speaking English in real-life situations and build confidence in your communication skills.',
-    duration: '2 months'
+    title: 'College Application Resources',
+    items: [
+      'Common App Essay Guidelines',
+      'College Research Worksheet',
+      'Application Timeline Planner',
+      'Recommendation Letter Tips',
+      'Financial Aid Guide'
+    ],
+    description: 'Comprehensive guides and templates to help you navigate the college application process.',
+    icon: 'M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222'
   }
 ];
 
@@ -34,63 +43,46 @@ export default function WorkshopPage() {
       {/* Hero Section */}
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
-          Language Workshops
+          Educational Resources
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Enhance your English language skills with our specialized workshops led by experienced instructors.
+          Access our curated collection of study materials and guides for IELTS, SAT, and college applications.
         </p>
       </div>
 
-      {/* Workshop Cards */}
+      {/* Resource Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-        {workshops.map((workshop) => (
+        {resources.map((resource) => (
           <div
-            key={workshop.title}
+            key={resource.title}
             className="bg-white/50 backdrop-blur-sm rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
           >
-            <h3 className="text-xl font-semibold mb-4">{workshop.title}</h3>
-            <div className="space-y-3 text-gray-600">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <p>{workshop.schedule}</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <p>{workshop.time}</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                <p>{workshop.instructor}</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-                <p>{workshop.level}</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p>{workshop.duration}</p>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={resource.icon} />
+              </svg>
+              <h3 className="text-xl font-semibold">{resource.title}</h3>
             </div>
-            <p className="mt-4 text-gray-600">{workshop.description}</p>
+            <ul className="space-y-2 mb-4">
+              {resource.items.map((item, index) => (
+                <li key={index} className="flex items-start gap-2 text-gray-600">
+                  <svg className="w-5 h-5 mt-0.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-600">{resource.description}</p>
           </div>
         ))}
       </div>
 
       {/* CTA Section */}
       <div className="text-center bg-white/50 backdrop-blur-sm rounded-lg shadow-sm p-8">
-        <h2 className="text-2xl font-semibold mb-4">Ready to Improve Your English?</h2>
+        <h2 className="text-2xl font-semibold mb-4">Need Help with Your Studies?</h2>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-          Join our workshops and take your language skills to the next level. Contact us for registration and more information.
+          Contact us for personalized guidance on IELTS preparation, SAT training, or college applications. Our experienced team is here to help you succeed.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a

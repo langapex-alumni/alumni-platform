@@ -58,7 +58,15 @@ const GalleryWall = () => {
       </div>
         
       <div className="mt-[150px]">
-        <h2 className="text-center text-[28px] font-semibold ">Got some pictures? Share with us <a href="https://docs.google.com/forms/d/e/1FAIpQLSczEhrtWwjvx67qv_UP0NLfQcItm7WsSsUugukgc15wBPHDuA/viewform?usp=dialog" className="underline text-blue-600">here</a></h2>
+        <h2 className="text-center text-[28px] font-semibold ">Got some pictures? Share with us         <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSczEhrtWwjvx67qv_UP0NLfQcItm7WsSsUugukgc15wBPHDuA/viewform?usp=dialog"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#0088cc] hover:bg-[#0077b3] gap-2 align-middle"
+        >
+          Here
+        </a>
+        </h2>
       </div>
 
       {/* Lightbox component */}
