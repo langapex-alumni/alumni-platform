@@ -92,14 +92,14 @@ export function CompanyCarousel() {
   }, [controls]);
 
   return (
-    <div className="bg-white/50 backdrop-blur-sm rounded-lg shadow-sm p-8 mb-16">
-      <h2 className="text-2xl font-semibold text-center mb-8">
+    <div className="bg-white/50 backdrop-blur-sm rounded-lg shadow-sm p-4 sm:p-8 mb-8 sm:mb-16">
+      <h2 className="text-xl sm:text-2xl font-semibold text-center mb-4 sm:mb-8">
         Our Alumni Work at Leading Tech Companies
       </h2>
       <div className="relative overflow-hidden">
         <div ref={containerRef} className="relative overflow-hidden">
           <motion.div
-            className="flex space-x-12"
+            className="flex space-x-6 sm:space-x-12"
             animate={controls}
             style={{
               width: "fit-content",
@@ -111,15 +111,15 @@ export function CompanyCarousel() {
                 className="flex-none group"
               >
                 <div 
-                  className="w-48 h-24 relative rounded-lg shadow-sm overflow-hidden transition-transform group-hover:scale-105 flex items-center justify-center"
+                  className="w-32 h-16 sm:w-48 sm:h-24 relative rounded-lg shadow-sm overflow-hidden transition-transform group-hover:scale-105 flex items-center justify-center"
                   style={{ background: `${company.color}08` }}
                 >
                   <company.Icon 
-                    className="w-12 h-12 transition-transform group-hover:scale-110" 
+                    className="w-8 h-8 sm:w-12 sm:h-12 transition-transform group-hover:scale-110" 
                     style={{ color: company.color }}
                   />
                 </div>
-                <p className="mt-2 text-sm text-gray-600 text-center">
+                <p className="mt-2 text-xs sm:text-sm text-gray-600 text-center">
                   {company.name}
                 </p>
               </div>
