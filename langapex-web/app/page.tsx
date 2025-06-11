@@ -53,17 +53,17 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Success Stories */}
+        {/* Alumni Gallery */}
         <div className="bg-white/50 backdrop-blur-sm rounded-lg shadow-sm p-6">
-          <h2 className="text-2xl font-semibold mb-4">Success Stories</h2>
+          <h2 className="text-2xl font-semibold mb-4">Alumni Gallery</h2>
           <p className="text-gray-600 mb-4">
-            Get inspired by the achievements of our distinguished alumni.
+            Check out our alumni gallery to see what our graduates are up to.
           </p>
           <Link
-            href="/stories"
+            href="/gallery"
             className="inline-flex items-center text-blue-600 hover:text-blue-800"
           >
-            Read Stories →
+            View Gallery →
           </Link>
         </div>
       </div>

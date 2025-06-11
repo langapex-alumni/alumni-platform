@@ -1,11 +1,11 @@
 import { Divider } from '@heroui/react';
 import { img } from 'framer-motion/client';
 import Image from 'next/image';
+import { FaUserCircle } from 'react-icons/fa';
 
 const alumni = [
   {
     name: 'Sherali Obidov',
-    img: 'https://media.licdn.com/dms/image/v2/D5603AQHDaJiqijS7LA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1706156902327?e=2147483647&v=beta&t=BoMeqIzVNamcTMUHAJFvLR6pCDPiacya-6YU3qlab4c',
     year: 2012,
     company: 'Google',
     role: 'Software Engineer',
@@ -76,7 +76,7 @@ export default function AlumniPage() {
                     className="w-16 h-12 sm:w-16 sm:h-16 rounded-full object-cover" 
                   />
                 ) : (
-                  <span className="text-xl sm:text-2xl font-semibold">{person.name.charAt(0)}</span>
+                  <FaUserCircle className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400" />
                 )
               }
             </div>
