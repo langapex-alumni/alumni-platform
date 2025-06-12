@@ -21,6 +21,11 @@ const images = [
     comment: "From BCC 2024",
     img: "/images/galleryWall/gallery-img3.jpeg",
   },
+  {
+    date: "2024",
+    comment: "BCC Winners 2024",
+    img: "/images/galleryWall/2024BCCWinners.jpg",
+  },
 ];
 
 const GalleryWall = () => {

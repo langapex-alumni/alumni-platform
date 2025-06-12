@@ -73,6 +73,11 @@ const companies: Company[] = [
     name: 'Computer Futures',
     icon: FaBuilding,
     color: '#003DA5'
+  },
+  {
+    name: 'Bank of America',
+    image: '/images/companies/bofa.png',
+    color: '#012169'
   }
 ];
 
