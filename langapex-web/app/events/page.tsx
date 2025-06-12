@@ -1,27 +1,11 @@
 const upcomingEvents = [
   {
-    title: 'Alumni Networking Mixer',
-    date: 'April 25, 2025',
-    time: '6:00 PM - 8:00 PM',
-    location: 'Lang Apex Main Campus',
-    description: 'Join us for an evening of networking with fellow alumni and current students. Light refreshments will be served.',
-    type: 'Networking'
-  },
-  {
-    title: 'Career Development Workshop',
-    date: 'May 10, 2025',
-    time: '2:00 PM - 4:00 PM',
-    location: 'Online (Zoom)',
-    description: 'Learn essential skills for career advancement from industry experts and successful alumni.',
-    type: 'Workshop'
-  },
-  {
-    title: 'Annual Alumni Reunion',
-    date: 'June 15, 2025',
-    time: '12:00 PM - 5:00 PM',
-    location: 'Lang Apex Garden',
-    description: 'Our biggest event of the year! Reconnect with old friends and make new connections.',
-    type: 'Social'
+    title: 'Soccer Match in Namangan',
+    date: 'June, 2025',
+    time: 'Coming Soon',
+    location: 'Namangan Stadium',
+    description: 'Join us for an exciting soccer match! Connect with fellow alumni through sports.',
+    type: 'Sports'
   }
 ];
 
@@ -74,6 +58,16 @@ export default function EventsPage() {
                 <p>{event.location}</p>
               </div>
               <p className="text-gray-600">{event.description}</p>
+              {event.type === 'Sports' && (
+                <a
+                  href="https://t.me/dombitsports"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+                >
+                  Join Telegram Group
+                </a>
+              )}
             </div>
           ))}
         </div>
