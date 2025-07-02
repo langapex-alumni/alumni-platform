@@ -26,6 +26,11 @@ const images = [
     comment: "BCC Winners 2024",
     img: "/images/galleryWall/2024BCCWinners.jpg",
   },
+    {
+    date: "2020",
+    comment: "2020, Spelling Bee",
+    img: "/images/galleryWall/gallery-img5.jpg",
+  },
 ];
 
 const GalleryWall = () => {

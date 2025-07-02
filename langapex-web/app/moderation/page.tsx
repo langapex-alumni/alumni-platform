@@ -16,7 +16,7 @@ const ModerationPage = () => {
     },
     {
       title: 'No Spam or Promotions',
-      description: 'No unsolicited advertising, self-promotion, or chain messages. Alumni-owned business promos must be approved by admins first.',
+      description   : 'No unsolicited advertising, self-promotion, or chain messages. Alumni-owned business promos must be approved by admins first.',
       icon: '🚫'
     },
     {
