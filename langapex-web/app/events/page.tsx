@@ -1,30 +1,42 @@
-const upcomingEvents = [
-  {
-    title: 'Soccer Match in Namangan',
-    date: 'June, 2025',
-    time: 'Coming Soon',
-    location: 'Namangan Stadium',
-    description: 'Join us for an exciting soccer match! Connect with fellow alumni through sports.',
-    type: 'Sports'
-  }
-];
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+interface Event {
+  title: string;
+  date: string;
+  location: string;
+  attendees?: number;
+  type: string;
+  time?: string;
+  description?: string;
+  images?: string[];
+}
+
+const upcomingEvents: Event[] = [];
 
 const pastEvents = [
   {
-    title: 'Tech Talk: Future of AI',
-    date: 'March 15, 2025',
-    location: 'Online',
-    attendees: 150
-  },
-  {
-    title: 'Spring Career Fair',
-    date: 'February 28, 2025',
-    location: 'Lang Apex Main Hall',
-    attendees: 200
+    title: 'Soccer Match in Namangan',
+    date: 'June, 2025',
+    location: 'Namangan Stadium',
+    attendees: 25,
+    type: 'Sports',
+    images: [
+      '/images/events/1a.jpg',
+      '/images/events/1b.jpg',
+      '/images/events/1c.jpg',
+      '/images/events/1d.jpg'
+    ]
   }
 ];
 
 export default function EventsPage() {
+  const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
+  const [imageIndex, setImageIndex] = useState(-1);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Hero Section */}
@@ -80,7 +92,7 @@ export default function EventsPage() {
           <div className="divide-y divide-gray-200">
             {pastEvents.map((event) => (
               <div key={event.title} className="p-6 hover:bg-gray-50">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="text-lg font-medium">{event.title}</h3>
                     <div className="mt-1 text-gray-600">
@@ -93,11 +105,43 @@ export default function EventsPage() {
                     </span>
                   </div>
                 </div>
+                {event.images && (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4">
+                    {event.images.map((img, idx) => (
+                      <div
+                        key={idx}
+                        className="relative aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                        onClick={() => {
+                          setSelectedEvent(pastEvents.indexOf(event));
+                          setImageIndex(idx);
+                        }}
+                      >
+                        <Image
+                          src={img}
+                          alt={`${event.title} image ${idx + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 640px) 50vw, 25vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {selectedEvent !== null && (
+        <Lightbox
+          open={imageIndex >= 0}
+          close={() => setImageIndex(-1)}
+          index={imageIndex}
+          slides={pastEvents[selectedEvent].images?.map(img => ({ src: img })) || []}
+        />
+      )}
     </div>
   );
 }
