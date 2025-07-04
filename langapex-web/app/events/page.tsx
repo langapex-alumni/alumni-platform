@@ -16,7 +16,16 @@ interface Event {
   images?: string[];
 }
 
-const upcomingEvents: Event[] = [];
+const upcomingEvents: Event[] = [
+  {
+    title: 'Alumnus Interview',
+    date: 'Coming Soon',
+    time: 'Evening, UZT',
+    location: 'Online',
+    type: 'Interview',
+    description: 'An exclusive interview with an alum!'
+  }
+];
 
 const pastEvents = [
   {
