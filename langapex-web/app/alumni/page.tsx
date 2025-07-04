@@ -1,11 +1,11 @@
 import { Divider } from '@heroui/react';
 import { img } from 'framer-motion/client';
 import Image from 'next/image';
+import { FaUserCircle } from 'react-icons/fa';
 
 const alumni = [
   {
     name: 'Sherali Obidov',
-    img: 'https://media.licdn.com/dms/image/v2/D5603AQHDaJiqijS7LA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1706156902327?e=2147483647&v=beta&t=BoMeqIzVNamcTMUHAJFvLR6pCDPiacya-6YU3qlab4c',
     year: 2012,
     company: 'Google',
     role: 'Software Engineer',
@@ -76,7 +76,7 @@ export default function AlumniPage() {
                     className="w-16 h-12 sm:w-16 sm:h-16 rounded-full object-cover" 
                   />
                 ) : (
-                  <span className="text-xl sm:text-2xl font-semibold">{person.name.charAt(0)}</span>
+                  <FaUserCircle className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400" />
                 )
               }
             </div>
@@ -101,22 +101,6 @@ export default function AlumniPage() {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-white/50 backdrop-blur-sm rounded-lg shadow-sm p-8 mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <div className="text-4xl font-bold mb-2">500+</div>
-            <div className="text-gray-600">Active Alumni</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold mb-2">30+</div>
-            <div className="text-gray-600">Countries</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold mb-2">85%</div>
-            <div className="text-gray-600">Employment Rate</div>
-          </div>
-        </div>
-      </div>
 
       {/* CTA Section */}
       <div className="text-center">
@@ -125,7 +109,7 @@ export default function AlumniPage() {
           Join our alumni network to stay connected and access exclusive opportunities.
         </p>
         <a
-          href="https://t.me/+AnJ8z-uGPp0wOGZi"
+          href="https://t.me/+G_ZxTznhMZw5NGUy"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#0088cc] hover:bg-[#0077b3] gap-2"

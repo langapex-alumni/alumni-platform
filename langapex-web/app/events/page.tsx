@@ -1,46 +1,51 @@
-const upcomingEvents = [
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+interface Event {
+  title: string;
+  date: string;
+  location: string;
+  attendees?: number;
+  type: string;
+  time?: string;
+  description?: string;
+  images?: string[];
+}
+
+const upcomingEvents: Event[] = [
   {
-    title: 'Alumni Networking Mixer',
-    date: 'April 25, 2025',
-    time: '6:00 PM - 8:00 PM',
-    location: 'Lang Apex Main Campus',
-    description: 'Join us for an evening of networking with fellow alumni and current students. Light refreshments will be served.',
-    type: 'Networking'
-  },
-  {
-    title: 'Career Development Workshop',
-    date: 'May 10, 2025',
-    time: '2:00 PM - 4:00 PM',
-    location: 'Online (Zoom)',
-    description: 'Learn essential skills for career advancement from industry experts and successful alumni.',
-    type: 'Workshop'
-  },
-  {
-    title: 'Annual Alumni Reunion',
-    date: 'June 15, 2025',
-    time: '12:00 PM - 5:00 PM',
-    location: 'Lang Apex Garden',
-    description: 'Our biggest event of the year! Reconnect with old friends and make new connections.',
-    type: 'Social'
+    title: 'Alumnus Interview',
+    date: 'Coming Soon',
+    time: 'Evening, UZT',
+    location: 'Online',
+    type: 'Interview',
+    description: 'An exclusive interview with an alum!'
   }
 ];
 
 const pastEvents = [
   {
-    title: 'Tech Talk: Future of AI',
-    date: 'March 15, 2025',
-    location: 'Online',
-    attendees: 150
-  },
-  {
-    title: 'Spring Career Fair',
-    date: 'February 28, 2025',
-    location: 'Lang Apex Main Hall',
-    attendees: 200
+    title: 'Soccer Match in Namangan',
+    date: 'June, 2025',
+    location: 'Namangan Stadium',
+    attendees: 25,
+    type: 'Sports',
+    images: [
+      '/images/events/1a.jpg',
+      '/images/events/1b.jpg',
+      '/images/events/1c.jpg',
+      '/images/events/1d.jpg'
+    ]
   }
 ];
 
 export default function EventsPage() {
+  const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
+  const [imageIndex, setImageIndex] = useState(-1);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Hero Section */}
@@ -74,6 +79,16 @@ export default function EventsPage() {
                 <p>{event.location}</p>
               </div>
               <p className="text-gray-600">{event.description}</p>
+              {event.type === 'Sports' && (
+                <a
+                  href="https://t.me/dombitsports"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+                >
+                  Join Telegram Group
+                </a>
+              )}
             </div>
           ))}
         </div>
@@ -86,7 +101,7 @@ export default function EventsPage() {
           <div className="divide-y divide-gray-200">
             {pastEvents.map((event) => (
               <div key={event.title} className="p-6 hover:bg-gray-50">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="text-lg font-medium">{event.title}</h3>
                     <div className="mt-1 text-gray-600">
@@ -99,11 +114,43 @@ export default function EventsPage() {
                     </span>
                   </div>
                 </div>
+                {event.images && (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4">
+                    {event.images.map((img, idx) => (
+                      <div
+                        key={idx}
+                        className="relative aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                        onClick={() => {
+                          setSelectedEvent(pastEvents.indexOf(event));
+                          setImageIndex(idx);
+                        }}
+                      >
+                        <Image
+                          src={img}
+                          alt={`${event.title} image ${idx + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 640px) 50vw, 25vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {selectedEvent !== null && (
+        <Lightbox
+          open={imageIndex >= 0}
+          close={() => setImageIndex(-1)}
+          index={imageIndex}
+          slides={pastEvents[selectedEvent].images?.map(img => ({ src: img })) || []}
+        />
+      )}
     </div>
   );
 }

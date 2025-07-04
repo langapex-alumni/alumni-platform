@@ -7,63 +7,77 @@ import {
   FaSalesforce, 
   FaMicrosoft, 
   FaFacebook,
-  FaUber,
-  FaSpotify,
   FaBuilding,
   FaIndustry
 } from 'react-icons/fa';
+
 import { useEffect, useRef } from 'react';
 
-const companies = [
+import Image from 'next/image';
+import { IconType } from 'react-icons';
+
+interface Company {
+  name: string;
+  icon?: IconType;
+  image?: string;
+  color: string;
+}
+
+const companies: Company[] = [
   {
     name: 'Google',
-    Icon: FaGoogle,
+    icon: FaGoogle,
     color: '#4285F4'
   },
   {
     name: 'Amazon',
-    Icon: FaAmazon,
+    icon: FaAmazon,
     color: '#FF9900'
   },
   {
     name: 'TCS Japan',
-    Icon: FaIndustry,
+    icon: FaIndustry,
     color: '#0033A0'
   },
   {
     name: 'Salesforce',
-    Icon: FaSalesforce,
+    icon: FaSalesforce,
     color: '#00A1E0'
   },
   {
     name: 'Michael Page',
-    Icon: FaBuilding,
+    image: '/images/companies/m-page.jpg',
     color: '#E01021'
   },
   {
     name: 'Microsoft',
-    Icon: FaMicrosoft,
+    icon: FaMicrosoft,
     color: '#00A4EF'
   },
   {
     name: 'Meta',
-    Icon: FaFacebook,
+    icon: FaFacebook,
     color: '#0668E1'
   },
   {
     name: 'Yanmar',
-    Icon: FaIndustry,
+    icon: FaIndustry,
     color: '#DA1F3D'
   },
   {
     name: 'IBM',
-    Icon: FaBuilding,
+    image: '/images/companies/ibm.png',
     color: '#1F70C1'
   },
   {
     name: 'Computer Futures',
-    Icon: FaBuilding,
+    icon: FaBuilding,
     color: '#003DA5'
+  },
+  {
+    name: 'Bank of America',
+    image: '/images/companies/bofa.png',
+    color: '#012169'
   }
 ];
 
@@ -92,14 +106,14 @@ export function CompanyCarousel() {
   }, [controls]);
 
   return (
-    <div className="bg-white/50 backdrop-blur-sm rounded-lg shadow-sm p-8 mb-16">
-      <h2 className="text-2xl font-semibold text-center mb-8">
+    <div className="bg-white/50 backdrop-blur-sm rounded-lg shadow-sm p-4 sm:p-8 mb-8 sm:mb-16">
+      <h2 className="text-xl sm:text-2xl font-semibold text-center mb-4 sm:mb-8">
         Our Alumni Work at Leading Tech Companies
       </h2>
       <div className="relative overflow-hidden">
         <div ref={containerRef} className="relative overflow-hidden">
           <motion.div
-            className="flex space-x-12"
+            className="flex space-x-6 sm:space-x-12"
             animate={controls}
             style={{
               width: "fit-content",
@@ -111,15 +125,25 @@ export function CompanyCarousel() {
                 className="flex-none group"
               >
                 <div 
-                  className="w-48 h-24 relative rounded-lg shadow-sm overflow-hidden transition-transform group-hover:scale-105 flex items-center justify-center"
+                  className="w-32 h-16 sm:w-48 sm:h-24 relative rounded-lg shadow-sm overflow-hidden transition-transform group-hover:scale-105 flex items-center justify-center"
                   style={{ background: `${company.color}08` }}
                 >
-                  <company.Icon 
-                    className="w-12 h-12 transition-transform group-hover:scale-110" 
-                    style={{ color: company.color }}
-                  />
+                  {company.icon ? (
+                    <company.icon 
+                      className="w-8 h-8 sm:w-12 sm:h-12 transition-transform group-hover:scale-110" 
+                      style={{ color: company.color }}
+                    />
+                  ) : company.image ? (
+                    <Image
+                      src={company.image}
+                      alt={company.name}
+                      width={48}
+                      height={48}
+                      className="w-8 h-8 sm:w-12 sm:h-12 transition-transform group-hover:scale-110 object-contain"
+                    />
+                  ) : null}
                 </div>
-                <p className="mt-2 text-sm text-gray-600 text-center">
+                <p className="mt-2 text-xs sm:text-sm text-gray-600 text-center">
                   {company.name}
                 </p>
               </div>
